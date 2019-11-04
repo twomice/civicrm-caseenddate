@@ -1,15 +1,14 @@
-# caseenddate
+# CiviCRM: Case End Date
 
 ![Screenshot](/images/screenshot.png)
 
-(*FIXME: In one or two paragraphs, describe what the extension does and why one would download it. *)
+Allows easy display and editing of case end date in "manage case" form.
 
 The extension is licensed under [GPL-3.0](LICENSE.txt).
 
 ## Requirements
 
-* PHP v5.4+
-* CiviCRM (*FIXME: Version number*)
+* CiviCRM 4/7 / 5.0
 
 ## Installation (Web UI)
 
@@ -22,7 +21,7 @@ install it with the command-line tool [cv](https://github.com/civicrm/cv).
 
 ```bash
 cd <extension-dir>
-cv dl caseenddate@https://github.com/FIXME/caseenddate/archive/master.zip
+cv dl caseenddate@https://github.com/twomice/caseenddate/archive/master.zip
 ```
 
 ## Installation (CLI, Git)
@@ -31,14 +30,16 @@ Sysadmins and developers may clone the [Git](https://en.wikipedia.org/wiki/Git) 
 install it with the command-line tool [cv](https://github.com/civicrm/cv).
 
 ```bash
-git clone https://github.com/FIXME/caseenddate.git
+git clone https://github.com/twomice/caseenddate.git
 cv en caseenddate
 ```
 
 ## Usage
 
-(* FIXME: Where would a new user navigate to get started? What changes would they see? *)
+* Install the extension and observe "End Date" is visible in the "Manage Case" 
+screen (per screenshot above).
+* Note that editing the end date in CiviCRM really means "creating an activity 
+of type 'Change case status', setting a "closed" status such as "Resolved", and
+specifying the date of that activity. This means a case can only have an end
+date if it's in a status of "closed" type.
 
-## Known Issues
-
-(* FIXME *)
