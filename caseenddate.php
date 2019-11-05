@@ -12,33 +12,14 @@ function caseenddate_civicrm_pageRun(&$page) {
   $pageName = $page->getVar('_name');
   if ($pageName == 'CRM_Case_Page_Tab') {
     $caseId = $page->_id;
-    $contactId = $page->_contactId;
     $case = civicrm_api3('case', 'getsingle', array(
       'id' => $caseId,
-//      'return' => array('end_date'),
     ));
     $endDate = CRM_Utils_Array::value('end_date', $case);
     $endDate = CRM_Utils_Date::customFormat($endDate);
 
-    $activityTypeId = civicrm_api3('OptionValue', 'getvalue', [
-      'option_group_id' => "activity_type",
-      'name' => "Change Case Status",
-      'return' => 'value',
-    ]);
-
-    $urlQuery = array(
-      'action' => 'add',
-      'reset' => '1',
-      'cid' => $contactId,
-      'caseid' => $caseId,
-      'selectedChild' => 'activity',
-      'atype' => $activityTypeId,
-    );
-    $updateUrl = CRM_Utils_System::url('civicrm/case/activity', $urlQuery, TRUE, NULL, NULL, FALSE, TRUE);
-
     $vars = array(
       'endDate' => $endDate,
-      'updateUrl' => $updateUrl,
     );
     CRM_Core_Resources::singleton()->addScriptFile('caseenddate', 'js/CRM_Case_Page_Tab.js');
     CRM_Core_Resources::singleton()->addVars('caseenddate', $vars);
