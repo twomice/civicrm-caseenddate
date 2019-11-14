@@ -10,7 +10,7 @@ use CRM_Caseenddate_ExtensionUtil as E;
  */
 function caseenddate_civicrm_pageRun(&$page) {
   $pageName = $page->getVar('_name');
-  if ($pageName == 'CRM_Case_Page_Tab') {
+  if ($pageName == 'CRM_Case_Page_Tab' && $page->_id) {
     $caseId = $page->_id;
     $case = civicrm_api3('case', 'getsingle', array(
       'id' => $caseId,
