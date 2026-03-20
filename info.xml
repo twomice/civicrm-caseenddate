@@ -18,16 +18,17 @@
   <version>1.2.0</version>
   <develStage>beta</develStage>
   <compatibility>
-    <ver>4.7</ver>
-    <ver>5.0</ver>
     <ver>5.70</ver>
   </compatibility>
   <comments>Developed for Korlon by Joinery</comments>
   <civix>
     <namespace>CRM/Caseenddate</namespace>
-    <format>23.02.1</format>
+    <format>25.10.2</format>
   </civix>
   <classloader>
     <psr4 prefix="Civi\" path="Civi"/>
   </classloader>
+  <mixins>
+    <mixin>scan-classes@1.0.0</mixin>
+  </mixins>
 </extension>
